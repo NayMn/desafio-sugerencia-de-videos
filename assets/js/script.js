@@ -23,7 +23,7 @@ class Multimedia {
 };
 
 class Reproductor extends Multimedia {
-    constructor(id, url) {
+    constructor(url, id) {
         super(url);
         this._id = id;
     }
@@ -31,8 +31,20 @@ class Reproductor extends Multimedia {
         funcionAutomatica.funcionPublica(this._url, this._id)
     }
     setInicio(tiempo) {
-        this._id.setAttribute('src', `${this._url}?start=${tiempo}`);
-
+        this._id.setAttribute('src', `${this._url}&amp;start=${tiempo}`);
     }
-
 };
+
+
+let musica = new Reproductor('https://www.youtube.com/embed/4y5bw_Jpirs?si=ya9U_4C-FS5ZJfl4', 'musica')
+let pelicula = new Reproductor('https://www.youtube.com/embed/zSWdZVtXT7E?si=aN6POcy2i6pvP9Ps', 'peliculas')
+let serie = new Reproductor('https://www.youtube.com/embed/yyGetSp7CIc?si=K-KcC5Y9f-qHO2uT', 'series')
+
+musica.playMultimedia();
+pelicula.setInicio(15);
+pelicula.playMultimedia();
+serie.playMultimedia();
+
+
+
+
