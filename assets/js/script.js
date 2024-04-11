@@ -31,7 +31,8 @@ class Reproductor extends Multimedia {
         funcionAutomatica.funcionPublica(this._url, this._id)
     }
     setInicio(tiempo) {
-        this._id.setAttribute('src', `${this._url}&amp;start=${tiempo}`);
+        const iframe = document.getElementById(this._id);
+        iframe.setAttribute('src', `${this._url}&amp;start=${tiempo}`);
     }
 };
 
@@ -41,10 +42,9 @@ let pelicula = new Reproductor('https://www.youtube.com/embed/zSWdZVtXT7E?si=aN6
 let serie = new Reproductor('https://www.youtube.com/embed/yyGetSp7CIc?si=K-KcC5Y9f-qHO2uT', 'series')
 
 musica.playMultimedia();
-pelicula.setInicio(15);
 pelicula.playMultimedia();
 serie.playMultimedia();
-
+pelicula.setInicio(15);
 
 
 
